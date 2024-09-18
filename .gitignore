@@ -1,0 +1,6 @@
+venv/
+.idea
+*.pdf
+.env
+venv*/
+.vscode/
