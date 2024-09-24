@@ -22,14 +22,13 @@ class Post(models.Model):
     imagen = models.ImageField(null=True, blank=True, upload_to='media', default='static/post_default.png')
     publicado = models.DateField(default=timezone.now)
 
-class Meta(Post):
+class Meta:
     orderin = ('-publicado')
 
-    def __str__(self):
-        return self.titulo
-        
-    def delete(self, using = None, keed_parent = False):
-        self.imagen.delete(self.imagen.name)
-        super().delete()
+def __str__(self):
+    return self.titulo
+            
+def delete(self, using = None, keed_parent = False):
+    self.imagen.delete(self.imagen.name)
+    super().delete()
 
-# page 25
