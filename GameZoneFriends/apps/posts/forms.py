@@ -1,0 +1,3 @@
+
+def Entryform(request):
+    pass

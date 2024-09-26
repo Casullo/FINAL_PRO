@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<h1>GameZoneFriends - Posts de los mejores juegos</h1>
+<h2>Vas a sentir que el mundo virtual es mejor que el real</h2>
+    {% for i in post %}
+            <br>
+            <li>{{ i.titulo }}</li>
+            <li>{{ i.subtitulo }}</li>
+            <li>{{ i.categoria }}</li>
+            {% empty %}
+            <h1>No hay Post</h1>
+        
+    {% endfor %}
+
+    <br>
+    <h3>Otro html</h3>
+    <h5>Mostramos otros contenidos</h5>
+
+{% endblock %}
