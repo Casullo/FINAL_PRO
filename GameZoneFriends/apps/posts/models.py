@@ -10,6 +10,10 @@ class Categoria(models.Model):
     
     def __str__(self):
         return self.nombre
+    class Meta:
+        db_table ="Categorias"
+        verbose_name="Categoria"
+        verbose_name_plural="Categorias"
 
 #Post
 class Post(models.Model):
@@ -24,6 +28,9 @@ class Post(models.Model):
     
     class Meta:
         ordering = ("-publicado",)
+        db_table ="Post"
+        verbose_name="Post"
+        verbose_name_plural="Posts"
         
     def __str__(self):
         return self.titulo
