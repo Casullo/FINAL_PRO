@@ -1,12 +1,19 @@
 from django.contrib import admin
-from .models import Categoria, Posts
+from .models import Categoria, Posts, User
 
 # Register your models here.
 
-@admin.register (Posts)
+#@admin.register (Posts)
 class PostsAdmin (admin.ModelAdmin):
-    listdisplay = ('Id', 'título', 'subtítulo', 'fecha', 'texto', 'activo', 
-                   'categoría', 'imagen', 'publicado' )
+    search_fields = ('Titulo',)
+    list_filter = ['categoria']
+    list_display = ["titulo", "autor", "categoria"]
+    date_hierarchy = "publicado"
     
-    admin.site.register (Categoria)
+
+admin.site.register (Categoria) 
+admin.site.register (User)
+admin.site.register (Posts, PostsAdmin) 
+
+
 

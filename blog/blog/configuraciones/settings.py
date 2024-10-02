@@ -129,4 +129,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media')
 
 
-#AUTH_USER_MODEL = 'posts.User'
+AUTH_USER_MODEL = "posts.User"
