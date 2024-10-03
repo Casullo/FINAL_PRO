@@ -6,7 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'GameZoneFriends.settings.local')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'GameZoneFriends.settings.local') # <---- (GameZoneFriends.settings.local) al crear la carpeta settings con sus 3 carpetas aca debemos decirle la ruta de esa carpeta
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

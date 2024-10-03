@@ -88,3 +88,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# esto va cuando se modifico la tabla User: se menciona la app y despues la tabla
+AUTH_USER_MODEL = "posts.User"
+
+# como en el archivo model de la app se agrego icono e imagen con la ruta media/posts ahora tenemos que declarar la ruta
+MEDIA_URL = "/media/"
