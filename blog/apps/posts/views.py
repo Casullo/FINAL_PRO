@@ -6,3 +6,5 @@ from .models import Posts
 def posts (request):
     posts = Posts.objects.all()
     return render (request, 'posts.html', {'posts': posts} )
+
+
