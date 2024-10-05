@@ -5,10 +5,19 @@
     {% for i in posts %}
 
     <br>
-    <li>{{ i.titulo }}</li>
-    <li>{{ i.subtitulo }}</li>
-    <li>{{ i.categoria }}</li>
-
+    <div class = 'container-noticias'>
+        <div>
+            <img src= '{{ i.imagen.url }}' alt="imagen de noticia">
+        </div>
+        <div>
+            <h3>{{ i.titulo }}</h3>
+            <p>{{ i.subtitulo }}</p>
+            <p>{{ i.categoria }}</p>  
+        </div>
+        
+    
+    </div>
+    
     {% empty %}
 
     <h1>No hay registros</h1>

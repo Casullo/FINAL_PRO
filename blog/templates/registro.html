@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block contenido %}
+
+<h1>Registro de Usuarios</h1>
+<!-- faltó agregar enctype="multipart/form-data" para poder enviar imagenes -->
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"> Enviar</button>
+</form>
+
+{% endblock %}

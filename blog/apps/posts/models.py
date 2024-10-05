@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User, AbstractUser 
 
 
-# Create your models here.
+#Create your models here.
 
 #creación de clase ´categoría'
 class User (AbstractUser):
@@ -12,9 +12,9 @@ class User (AbstractUser):
     descripcion = models.TextField (max_length= 250)
 
     def __str__ (self):
-        return self.username
+       return self.username
     
-    class Meta ():
+class Meta ():
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
 
