@@ -16,6 +16,6 @@ from django.urls import reverse_lazy
 
 class Registro(CreateView):
     form_class = RegistroForm
-    success_url = reverse_lazy("noticias")
+    success_url = reverse_lazy("index")
     template_name = "registro.html"
 

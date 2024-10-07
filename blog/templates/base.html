@@ -32,6 +32,17 @@
                 <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'posts' %}">Noticias</a>
                 <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'apps.contacto:contacto' %}">Contacto</a>
                 <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'registro' %}" tabindex="-1" aria-disabled="true">Registrarse</a>
+                {% if user.is_authenticated %}
+                <h3>{{ user.username }}</h3>
+                <form action="{% url 'logout' %}" method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit">
+                </form>
+
+                {% else %}
+                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'login' %}">Iniciar sesión</a>
+                {% endif %}
               </nav> 
 
               {% block contenido %}
