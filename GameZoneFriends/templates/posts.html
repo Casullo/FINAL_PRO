@@ -10,6 +10,9 @@
             <ls>{{ i.subtitulo }}</ls>
             <li>{{ i.categoria }}</li>
             <li>{{ i.fecha }}</li>
+            <img src = "{{ i.imagen.url }}" style="max-width: 300px; margin: 30px;"> 
+            <p>{{ i.contenido }}</p>
+            <li> {{ i.activo }}</li>
             
     <br>
             {% empty %}
