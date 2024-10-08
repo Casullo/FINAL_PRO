@@ -4,11 +4,14 @@
 
 <h1>GameZoneFriends - Posts de los mejores juegos</h1>
 <h2>Vas a sentir que el mundo virtual es mejor que el real</h2>
-    {% for i in post %}
-            <br>
-            <li>{{ i.titulo }}</li>
-            <li>{{ i.subtitulo }}</li>
+    {% for i in posts %}
+    <br>
+            <h3>{{ i.titulo }}</h3>
+            <ls>{{ i.subtitulo }}</ls>
             <li>{{ i.categoria }}</li>
+            <li>{{ i.fecha }}</li>
+            
+    <br>
             {% empty %}
             <h1>No hay Post</h1>
         
