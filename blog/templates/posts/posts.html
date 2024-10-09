@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="container-fluid" style="margin: 200px;">
+    {% for i in posts %}
+    <div>
+        <img src= '{{ i.imagen.url }}' alt="imagen de noticia">
+    </div>
+        <li>{{ i.titulo }}</li>
+        <li>{{ i.subtitulo }}</li>
+        <li>{{ i.categoria }}</li>
+        <a id="boton_post" href="{% url 'apps.posts:post_individual' i.id %}">
+            Ingresa a este Post
+        </a>
+        <br>
+        <br>
+        
+    {% empty %}
+        <h1>No hay registros</h1>
+    {% endfor %}
+</div>
+{% endblock %}

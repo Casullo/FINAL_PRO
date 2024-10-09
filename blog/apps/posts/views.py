@@ -3,9 +3,22 @@ from django.shortcuts import render
 from .models import Posts
 
 # Create your views here.
-def posts (request):
-    posts = Posts.objects.all()
-    return render (request, 'posts.html', {'posts': posts} )
+
+#vista basada en clases
+from django.views.generic import ListView, DetailView
+
+class PostListView(ListView):
+    model = Posts
+    template_name = "posts/posts.html"
+    context_object_name = "posts"
+
+
+class PostDetailView(DetailView):
+    model = Posts
+    template_name = "posts/post_individual.html"
+    context_object_name = "posts"
+    pk_url_kwarg = "id"
+    queryset = Posts.objects.all()
 
 
 from .forms import RegistroForm

@@ -2,15 +2,24 @@
 
 {% load static %}
 
+<title>{% block title %} Registro de usuario {% endblock title %}</title>
 
 {% block contenido %}
+<center>
+<form method="POST" enctype="multipart/form-data" style="margin-top: 300px; margin-bottom: 100px;">   
 
-<h1>Registro de Usuarios</h1>
-<!-- faltó agregar enctype="multipart/form-data" para poder enviar imagenes -->
-<form method="post" enctype="multipart/form-data">
+    <h1 class="hl">Registro de usuarios</h1>
+    <div class="messages">
+        {% for message in messages %}
+            <table{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</table>
+        {% endfor %}
+    </div>
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit"> Enviar</button>
+    <div class="container-fluid">
+        <table>{{ form.as_p }}</table>
+    </div>
+    <br><br>
+    <button type="submit" class="btn btn-success btn-lg px-3">Registrar</button>
 </form>
-
+</center>
 {% endblock %}

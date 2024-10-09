@@ -29,19 +29,17 @@
             
             <nav class="nav nav-pills flex-column flex-sm-row">
                 <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'index' %}">Inicio</a>
-                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'posts' %}">Noticias</a>
+                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'apps.posts:posts' %}">Noticias</a>
                 <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'apps.contacto:contacto' %}">Contacto</a>
-                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'registro' %}" tabindex="-1" aria-disabled="true">Registrarse</a>
+                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'apps.posts:registro' %}" tabindex="-1" aria-disabled="true">Registrarse</a>
                 {% if user.is_authenticated %}
-                <h3>{{ user.username }}</h3>
                 <form action="{% url 'logout' %}" method="POST">
                     {% csrf_token %}
-                    {{ form }}
-                    <input type="submit">
+                    <button type="sumit">LogOut</button>
                 </form>
 
                 {% else %}
-                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'login' %}">Iniciar sesión</a>
+                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'login' %}">LogIn</a>
                 {% endif %}
               </nav> 
 
