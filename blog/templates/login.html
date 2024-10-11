@@ -14,11 +14,12 @@
     </div>
     {% csrf_token %}
     <div class="container">
+        <a href="{% url 'password_reset'}">¡Olvidaste tu contraseña? </a>
         <table>{{ form.as_p }}</table>
     </div>
     <a style="color: black;" href="{% url 'apps.posts:registro' %}">Todavía no está registrado? Registrate</a>
     <br><br>
-    <button type="submit" class="btn btn-success btn-lg px-3">Iniciar sesión</button>   
+    <button type="submit" class="btn btn-success btn-lg px-3">Iniciar sesión</button>
 
 </form>
 </center>

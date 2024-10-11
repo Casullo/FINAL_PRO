@@ -1,19 +1,39 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
+
+<section>
+    {% if user.is_authenticated %}
+    <a href="{% url 'apps.posts:nuevo_post' %}"><button>Nuevo Post</button></a>
+    <hr>
+    {% endif %}
+</section>
+
 <div class="container-fluid" style="margin: 200px;">
     {% for i in posts %}
     <div>
         <img src= '{{ i.imagen.url }}' alt="imagen de noticia">
     </div>
-        <li>{{ i.titulo }}</li>
-        <li>{{ i.subtitulo }}</li>
-        <li>{{ i.categoria }}</li>
+        <h2>{{ i.titulo }}</h2>
+        <p>{{ i.subtitulo }}</p> 
+        <p>{{ i.categoria }}</p> 
+        {% if user.is_authenticated %}
+
+        <a href="{% url 'eliminar_post' i.id %}"><button type="submit">Eliminar post</button></a>
+       
+        {% endif %}
+
+       
+
+     
         <a id="boton_post" href="{% url 'apps.posts:post_individual' i.id %}">
-            Ingresa a este Post
+            Ingresa a este post
         </a>
-        <br>
-        <br>
+        
+
+      
+       
+        <hr>
         
     {% empty %}
         <h1>No hay registros</h1>

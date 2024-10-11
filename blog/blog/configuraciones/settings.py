@@ -34,7 +34,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+SITE_NAME = 'Juegoteca'
 # Application definition
 
 INSTALLED_APPS = [
@@ -138,3 +138,11 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media')
 
 
 AUTH_USER_MODEL = "posts.User"
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'juegoteca568@gmail.com'
+EMAIL_HOST_PASSWORD = 'comision5grupo2'
