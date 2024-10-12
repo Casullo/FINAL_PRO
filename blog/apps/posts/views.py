@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Posts
+from .models import Posts, User, Comentarios
 
 # Create your views here.
 
@@ -13,6 +13,7 @@ class PostListView(ListView):
     context_object_name = "posts"
 
 
+
 class PostDetailView(DetailView):
     model = Posts
     template_name = "posts/post_individual.html"
@@ -21,8 +22,8 @@ class PostDetailView(DetailView):
     queryset = Posts.objects.all()
 
 
-from .forms import RegistroForm, CrearForm
-from django.views.generic import CreateView, DeleteView
+from .forms import RegistroForm, CrearForm, ModificarForm
+from django.views.generic import CreateView, DeleteView, UpdateView
 
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -53,6 +54,32 @@ class CrearPost(CreateView):
 
 class EliminarPost (DeleteView):
     model = Posts
+    success_url = reverse_lazy ("index")
+
+
+class ModificarPost (UpdateView):
+    model = Posts
+    form_class = ModificarForm
+    template_name = 'posts/modificar_post.html'
     success_url = reverse_lazy ('index')
+
+#comentarios
+
+from django.contrib.auth.decorators import login_required
+
+
+@login_required
+def comentar_post(request):
+    comentario = request.POST.get("comentario", None)
+    user = request.user
+    post = request.POST.get("id_posts", None)
+    get_post = Posts.objects.get(pk=post)
+    coment = Comentarios.objects.create(autor=user, contenido=comentario, post=get_post)
+
+    return redirect (reverse_lazy ('post_individual', kwargs = {'id': post}))
+
+
+
+
 
 

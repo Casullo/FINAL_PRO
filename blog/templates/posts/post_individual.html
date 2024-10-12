@@ -1,7 +1,44 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Noticia completa {% endblock titulo %}
+{% block contenido %}
+
 <br>
+<a href="{% url 'apps.posts:modificar_post' posts.pk %}">Modificar post</a>
 <h2>{{ posts.titulo }}</h2>
 <li> {{ posts.subtitulo }}</li>
 <li> {{ posts.categoria }}</li>
 <img src="{{ posts.imagen.url }}" width="300" height="200">
 <br>
  <h4>{{ posts.texto }}</h4>
+
+ <!-- comentarios -->
+
+ <h2>Escribe un comentario</h2>
+ <div>
+     <form action="{% url 'apps.posts:comentar' %}" method="post">
+         {% csrf_token %}
+         <textarea name="comentario">
+         </textarea>
+         <input type="text" name="id_posts" value="{{ posts.pk }}" hidden="">
+         <input type="submit" value="comentar">
+     </form>
+ </div>
+ 
+ <div>
+     <h2>Comentarios</h2>
+     {% for comentario in comentarios %}
+     <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+         <div class="card-header">{{comentario.fecha_publicacion}}</div>
+         <div class="card-body">
+             <h5 class="card-title"> {{comentario.autor}}</h5>
+             <p class="card-text">{{comentario.contenido}}</p>
+         </div>
+     </div>
+ 
+     {% endfor %}
+ </div>
+ {% endblock contenido %}
+
+
+

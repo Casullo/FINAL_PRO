@@ -3,7 +3,9 @@
 desea eliminar {{object}}
 <form action="" method="post">
     {% csrf_token %}
-    {{form}}
-    <input type="submit">
+    
+    <button type="submit">Confirmar </button>
+    <a href="{% url 'apps.posts:posts' %}">Cancelar</a>
 </form>
+
 {% endblock contenido%}

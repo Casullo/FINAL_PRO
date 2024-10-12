@@ -15,28 +15,15 @@
         <img src= '{{ i.imagen.url }}' alt="imagen de noticia">
     </div>
         <h2>{{ i.titulo }}</h2>
-        <p>{{ i.subtitulo }}</p> 
-        <p>{{ i.categoria }}</p> 
-        {% if user.is_authenticated %}
+        <p>{{ i.texto | truncatechars:45}} <a href="{% url 'apps.posts:post_individual' i.id %}">seguir leyendo...</a></p>
+        <li> {{ i.categoria }} </li> 
+        
 
-        <a href="{% url 'eliminar_post' i.id %}"><button type="submit">Eliminar post</button></a>
-       
-        {% endif %}
-
-       
-
+        <a href="{% url 'apps.posts:eliminar_post' i.pk %}"><button type="submit">Eliminar post</button></a>
      
-        <a id="boton_post" href="{% url 'apps.posts:post_individual' i.id %}">
-            Ingresa a este post
-        </a>
-        
 
-      
-       
-        <hr>
         
-    {% empty %}
-        <h1>No hay registros</h1>
+        <hr>
     {% endfor %}
 </div>
 {% endblock %}
