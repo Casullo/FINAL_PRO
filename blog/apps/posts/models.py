@@ -8,7 +8,7 @@ from django.contrib.auth.models import User, AbstractUser
 
 #creación de clase ´categoría'
 class User (AbstractUser):
-    icono = models.ImageField (upload_to= 'media/usuarios', null=True, blank=True)
+    icono = models.ImageField (upload_to= 'media/usuarios', default='default.jpg', null=True, blank=True)
     descripcion = models.TextField (max_length= 250)
 
     def __str__ (self):

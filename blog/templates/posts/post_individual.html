@@ -1,44 +1,42 @@
-{% extends 'base.html' %}
+{% extends 'base.html'%}
 
-{% block titulo %} Noticia completa {% endblock titulo %}
+{% block titulo %} Noticia completa {% endblock %}
+
 {% block contenido %}
 
-<br>
 <a href="{% url 'apps.posts:modificar_post' posts.pk %}">Modificar post</a>
-<h2>{{ posts.titulo }}</h2>
-<li> {{ posts.subtitulo }}</li>
-<li> {{ posts.categoria }}</li>
-<img src="{{ posts.imagen.url }}" width="300" height="200">
-<br>
- <h4>{{ posts.texto }}</h4>
+<h1>{{noticia}}</h1>
+<img class="img-detalle" src="{{  posts.imagen.url  }}" style="height: 200px;">
+<p>{{posts.texto}}</p>
+<p>Fecha: {{posts.fecha}}</p>
+<p>Categoria: {{posts.categoria}}</p>
 
- <!-- comentarios -->
+<p><img width="20px"
+        src="https://th.bing.com/th/id/R.0ababdb27dd0bb71f21f03c98b6cd6f1?rik=%2fiVDxahrgNztPA&pid=ImgRaw&r=0" alt="">
+    {{posts.autor}}</p>
 
- <h2>Escribe un comentario</h2>
- <div>
-     <form action="{% url 'apps.posts:comentar' %}" method="post">
-         {% csrf_token %}
-         <textarea name="comentario">
-         </textarea>
-         <input type="text" name="id_posts" value="{{ posts.pk }}" hidden="">
-         <input type="submit" value="comentar">
-     </form>
- </div>
- 
- <div>
-     <h2>Comentarios</h2>
-     {% for comentario in comentarios %}
-     <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-         <div class="card-header">{{comentario.fecha_publicacion}}</div>
-         <div class="card-body">
-             <h5 class="card-title"> {{comentario.autor}}</h5>
-             <p class="card-text">{{comentario.contenido}}</p>
-         </div>
-     </div>
- 
-     {% endfor %}
- </div>
- {% endblock contenido %}
+<h2>Escribe un comentario</h2>
+<div>
+    <form action="{% url 'apps.posts:comentar' %}" method="post">
+        {% csrf_token %}
+        <textarea name="comentario">
+        </textarea>
+        <input type="text" name="id_posts" value="{{ posts.pk }}" hidden="">
+        <input type="submit" value="comentar">
+    </form>
+</div>
 
+<div>
+    <h2>Comentarios</h2>
+    {% for comentario in comentarios %}
+    <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">{{comentario.fecha}}</div>
+        <div class="card-body">
+            <h5 class="card-title"> {{comentario.autor}}</h5>
+            <p class="card-text">{{comentario.contenido}}</p>
+        </div>
+    </div>
 
-
+    {% endfor %}
+</div>
+{% endblock contenido %}

@@ -79,6 +79,15 @@ def comentar_post(request):
     return redirect (reverse_lazy ('post_individual', kwargs = {'id': post}))
 
 
+def perfil(request, id):
+    ctx = {}
+    usuarios = User.objects.get(id=id)
+    ctx["usuarios"] = usuarios
+    print(usuarios)
+    return render(request, "perfil.html", ctx)
+
+
+
 
 
 

@@ -3,13 +3,16 @@
 <!doctype html>
 <html lang="es-ar">
     <head>
-        <title>{% block title %} Página de inicio {% endblock title %}</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <title> {% block titulo %} 
+
+            {% endblock %}
+        </title>
          <link rel="stylesheet" href= "{% static 'css/style.css' %}">
         <!-- Bootstrap CSS v5.2.1 -->
         <link
@@ -24,24 +27,33 @@
         <header>
             <!-- place navbar here -->
             <a class="flex-sm-fill text-sm-center nav-link active" href="#">
-                <img src="{% static 'img/Kratos.jpg' %}" style="max-width: 300px; margin: 30px;">
+                <img src="{% static 'img/Kratos.jpg' %}" style="max-width: 100px; margin: 30px;">
               </a>
             
             <nav class="nav nav-pills flex-column flex-sm-row">
-                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'index' %}">Inicio</a>
+                <!-- <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'index' %}">Inicio</a> -->
                 <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'apps.posts:posts' %}">Noticias</a>
                 <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'apps.contacto:contacto' %}">Contacto</a>
                 <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'apps.posts:registro' %}" tabindex="-1" aria-disabled="true">Registrarse</a>
+                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'login' %}">LogIn</a>
                 {% if user.is_authenticated %}
                 <form action="{% url 'logout' %}" method="POST">
                     {% csrf_token %}
-                    <button type="sumit">LogOut</button>
+                    <button type="sumit">Cerrar sesión</button>
                 </form>
+                <a href="{% url 'apps.posts:perfil' user.id %}">
+                    <li> {{user.username}} {% if usuarios.icono != Null %}<img src="{{User.icono.url}}" alt=""
+                        width="50px">
+                    {% endif %}
 
-                {% else %}
-                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'login' %}">LogIn</a>
+                    </li>
+
+           
+               
                 {% endif %}
               </nav> 
+        </header>
+        
 
               {% block contenido %}
 
@@ -49,7 +61,7 @@
               {% endblock %}
 
               
-        </header>
+        
         <main></main>
           <!-- place footer here -->
           <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">

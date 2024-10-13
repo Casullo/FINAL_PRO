@@ -40,3 +40,4 @@ class ComentarioForm(forms.ModelForm):
         fields = ["contenido",]
 
 
+
