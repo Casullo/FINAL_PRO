@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block contenido%}
+desea eliminar {{object}}
+<form action="" method="post">
+    {% csrf_token %}
+    
+    <button type="submit">Confirmar </button>
+    <a href="{% url 'apps.posts:posts' %}">Cancelar</a>
+</form>
+
+{% endblock contenido%}
