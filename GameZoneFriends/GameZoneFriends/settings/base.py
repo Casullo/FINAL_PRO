@@ -31,7 +31,11 @@ ROOT_URLCONF = 'GameZoneFriends.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR  / '../templates'], # ese ../templates  es la ruta
+
+
+
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
