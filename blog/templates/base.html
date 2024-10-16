@@ -23,35 +23,50 @@
         />
     </head>
 
-    <body>
+    <body >
         <header>
             <!-- place navbar here -->
-            <a class="flex-sm-fill text-sm-center nav-link active" href="#">
-                <img src="{% static 'img/Kratos.jpg' %}" style="max-width: 100px; margin: 30px;">
-              </a>
-            
-            <nav class="nav nav-pills flex-column flex-sm-row">
-                <!-- <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'index' %}">Inicio</a> -->
-                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'apps.posts:posts' %}">Noticias</a>
-                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'apps.contacto:contacto' %}">Contacto</a>
-                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'apps.posts:registro' %}" tabindex="-1" aria-disabled="true">Registrarse</a>
-                <a class="flex-sm-fill text-sm-center nav-link active" href="{% url 'login' %}">LogIn</a>
-                {% if user.is_authenticated %}
-                <form action="{% url 'logout' %}" method="POST">
-                    {% csrf_token %}
-                    <button type="sumit">Cerrar sesión</button>
-                </form>
-                <a href="{% url 'apps.posts:perfil' user.id %}">
-                    <li> {{user.username}} {% if usuarios.icono != Null %}<img src="{{User.icono.url}}" alt=""
-                        width="50px">
-                    {% endif %}
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-neon">
 
-                    </li>
-
-           
-               
-                {% endif %}
-              </nav> 
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">
+                    <img src="{% static 'img/Kratos.jpg' %}" alt="Logo" class="rounded-circle shadow-sm img-thumbnail" style="max-width: 100px; margin: 30px;">
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"   
+               aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                        <div class="bg-white text-black p-2 rounded"><a href="{% url 'apps.posts:posts' %}">Noticias</a>
+                    </div>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'apps.contacto:contacto' %}">Contacto</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'apps.posts:nosotros' %}">Sobre nosotros</a>
+                      </li>
+                      {% if user.is_authenticated %}
+                        <li class="nav-item text white">
+                          <form action="{% url 'logout' %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="nav-link btn btn-link text-white">Cerrar sesión</button>
+                          </form>
+                        </li>
+                      {% else %}
+                        <li class="nav-item text-white">
+                          <a class="nav-link" href="{% url 'login' %}">LogIn</a>
+                        </li>
+                        <li class="nav-item text-white">
+                          <a class="nav-link" href="{% url 'apps.posts:registro' %}">Registrarse</a>
+                        </li>
+                      {% endif %}
+                    </ul>
+                  </div>
+                </div>
+              </nav>
         </header>
         
 
@@ -65,11 +80,11 @@
         <main></main>
           <!-- place footer here -->
           <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
-                <div class="container text-center">
-                  <small>Copyright &copy; Your Website</small>
-                </div>
-          </footer>
-           
+            <div class="container text-center">
+              <small>Copyright &copy; Your Website</small>
+            </div>
+      </footer>  
+  
         <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
