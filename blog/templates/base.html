@@ -39,8 +39,8 @@
                   <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                       <li class="nav-item">
-                        <div class="bg-white text-black p-2 rounded"><a href="{% url 'apps.posts:posts' %}">Noticias</a>
-                    </div>
+                        <li> <a class="nav-link text-white" href="{% url 'apps.posts:posts' %}">Noticias</a>
+                      </li>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link text-white" href="{% url 'apps.contacto:contacto' %}">Contacto</a>
@@ -49,12 +49,16 @@
                         <a class="nav-link text-white" href="{% url 'apps.posts:nosotros' %}">Sobre nosotros</a>
                       </li>
                       {% if user.is_authenticated %}
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'apps.posts:perfil' user.id %}">{{ user.username}}</a>
+                      </li>
                         <li class="nav-item text white">
                           <form action="{% url 'logout' %}" method="POST">
                             {% csrf_token %}
                             <button type="submit" class="nav-link btn btn-link text-white">Cerrar sesión</button>
                           </form>
                         </li>
+
                       {% else %}
                         <li class="nav-item text-white">
                           <a class="nav-link" href="{% url 'login' %}">LogIn</a>

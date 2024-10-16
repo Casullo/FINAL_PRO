@@ -72,6 +72,14 @@ class ModificarPost (UpdateView):
 def about_us(request):
     return render(request, "posts/nosotros.html")
 
+#perfil de usuarios función
+
+def perfil(request, id):
+    ctx = {}
+    usuarios = User.objects.get(id=id)
+    ctx["usuarios"] = usuarios
+    print(usuarios)
+    return render(request, "perfil.html", ctx)
 
 
 

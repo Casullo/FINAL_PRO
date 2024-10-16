@@ -19,6 +19,8 @@ urlpatterns = [
     path ("modificar/<int:pk>", views.ModificarPost.as_view(), name = 'modificar_post'),
 
     path("nosotros/", views.about_us, name="nosotros"),
+
+    path ("perfil/<int:id>", views.perfil , name="perfil"), 
     
   
 ]
