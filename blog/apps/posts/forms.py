@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User, Posts
+from .models import User, Posts, Comentario
 
 
 class RegistroForm(UserCreationForm):
@@ -32,5 +32,12 @@ class ModificarForm (forms.ModelForm):
         model = Posts
         fields = ('texto',)
 
+from django import forms
+from .models import Comentario
+
+class ComentarioForm(forms.ModelForm):
+    class Meta:
+        model = Comentario
+        fields = ['texto']
 
 
