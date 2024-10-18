@@ -8,7 +8,7 @@
 
 <h1>{{usuarios.id}} --> {{usuarios.username}}</h1>
 {% if usuarios.icono %}
-<img src="{{usuarios.icono.url}}" alt="Imagen perfil" class="img-perfil">
+<img src="{{ usuarios.icono.url }}" alt="Imagen perfil" class="img-perfil">
 {% else %}
 <img src="media/default.jpg" alt="Ícono de perfil por defecto" class="img-perfil">
 

@@ -33,7 +33,7 @@ from django.shortcuts import redirect
 class Registro(CreateView):
     form_class = RegistroForm
     success_url = reverse_lazy("login")
-    template_name = "registro.html"
+    template_name = "registration/registro.html"
 
     def form_valid(self, form):
         messages.success (self.request, 'Registro exitoso. Por favor, iniciar sesión.')
@@ -45,7 +45,7 @@ class CrearPost(CreateView):
     form_class = CrearForm
     model = Posts
     template_name = "posts/crear_post.html"
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("posts")
 
     def form_valid(self, form):
         form.instance.autor = self.request.user
@@ -54,14 +54,14 @@ class CrearPost(CreateView):
 
 class EliminarPost (DeleteView):
     model = Posts
-    success_url = reverse_lazy ("index")
+    success_url = reverse_lazy ("posts")
 
 
 class ModificarPost (UpdateView):
     model = Posts
     form_class = ModificarForm
     template_name = 'posts/modificar_post.html'
-    success_url = reverse_lazy ('index')
+    success_url = reverse_lazy ('posts')
 
 #comentarios
 
