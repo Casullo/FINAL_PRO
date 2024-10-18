@@ -5,21 +5,27 @@
 <title>{% block title %} Registro de usuario {% endblock title %}</title>
 
 {% block contenido %}
-<center>
-<form method="POST" enctype="multipart/form-data" style="margin-top: 300px; margin-bottom: 100px;">   
-
-    <h1 class="hl">Registro de usuarios</h1>
-    <div class="messages">
-        {% for message in messages %}
-            <table{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</table>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2>Registro de usuario</h2>
+    </div>
+    <div class="card-body">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.errors %}
+              <div class="text-danger">{{ field.errors }}</div>
+            {% endif %}
+          </div>
         {% endfor %}
+        <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+      </form>
     </div>
-    {% csrf_token %}
-    <div class="container-fluid">
-        <table>{{ form.as_p }}</table>
-    </div>
-    <br><br>
-    <button type="submit" class="btn btn-success btn-lg px-3">Registrar</button>
-</form>
-</center>
-{% endblock %}
+  </div>
+</div>
+
+  {% endblock %}

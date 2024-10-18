@@ -31,7 +31,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-neon">
 
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="#">
+                  <a class="navbar-brand" href="{% url 'apps.posts:posts' %}">
                     <img src="{% static 'img/Kratos.jpg' %}" alt="Logo" class="rounded-circle shadow-sm img-thumbnail" style="max-width: 100px; margin: 30px;">
                   </a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"   
@@ -62,11 +62,12 @@
                         </li>
 
                       {% else %}
+                        
                         <li class="nav-item text-white">
-                          <a class="nav-link" href="{% url 'login' %}">LogIn</a>
+                          <a class="nav-link text-white" href="{% url 'apps.posts:registro' %}">Registrarse</a>
                         </li>
                         <li class="nav-item text-white">
-                          <a class="nav-link" href="{% url 'apps.posts:registro' %}">Registrarse</a>
+                          <a class="nav-link border border-white text-white" href="{% url 'login' %}">LogIn</a>
                         </li>
                       {% endif %}
                     </ul>
@@ -83,13 +84,39 @@
 
               
         
-        <main></main>
+  <main></main>
           <!-- place footer here -->
-          <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
-            <div class="container text-center">
-              <small>Copyright &copy; Your Website</small>
+          <footer id="sticky-footer" class="flex-shrink-0 py-2 bg-dark text-white-50">
+          
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <h6 class="text-light text-underline">Nuestras redes</h6>
+                  <a href="https://github.com/GabiPoko" target="_blank">
+                    <img src="{% static 'img/github-logo.png' %}" alt="Github" width="25">
+                  </a>
+                  <a href="https://www.instagram.com/" target="_blank">
+                    <img src="{% static 'img/instagram.png' %}" alt="Instagram" width="25">
+                  </a>
+                  <a href="https://mail.google.com/mail/u/3/#inbox" target="_blank">
+                    <img src="{% static 'img/images.png' %}" alt="email" width="25">
+                  </a>
+            
+                </div>
+                <div class="col-md-4 text-center">
+                  <small>Copyright &copy; Your Website</small>
+                </div>
+                <div class="col-md-4 text-end">
+                  <h6 class="text-light text-underline">Contáctanos</h6>
+                  <img src="{% static 'img/tel.png' %}" alt="telefono" width="25"><span >3634 435678</span>
+                  
+                </div>
+              </div>
             </div>
-      </footer>  
+          </footer>
+          <!-- repaso de los elementos en el footer -->
+        </body>
+      </html>
   
         <!-- Bootstrap JavaScript Libraries -->
         <script

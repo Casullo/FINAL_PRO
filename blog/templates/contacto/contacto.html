@@ -1,23 +1,36 @@
 {% extends 'base.html' %}
 
 {% load static %}
+
 {% block titulo %} Contacto {% endblock titulo %}
+
 {% block contenido %}
 
-<center>
-    <form method="POST" style="margin:200px;">
-        <h1>Formulario de contacto</h1>
-        <br>
-        {% if messages %}
-            {% for message in messages %}
-                <div class="message {{ message.tags }}"> {{ message }}</div>
-            {% endfor %}
-        {% endif %}
-        <table>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title text-center">Formulario 
+ de contacto</h5>
+        </div>
+        <div class="card-body">
+          {% if messages %}
+            <div class="alert alert-danger text-center">
+              {% for message in messages %}
+                {{ message }}<br>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <form method="POST">
             {% csrf_token %}
-            {{ form }}
-        </table>
-        <input type="submit" value="enviar">
-    </form>
-</center>
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}

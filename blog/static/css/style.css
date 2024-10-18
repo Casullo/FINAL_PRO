@@ -6,24 +6,9 @@
     background-color: hsl(0, 23%, 94%);
 }
 
-.btn {
-    background-color: #4CAF50; /* Verde */
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-
-    border-radius: 12px;
-}
-
 .nav-link.btn-link {
     padding-top: .5rem;
     padding-bottom: .5rem;
   }
-
 
 

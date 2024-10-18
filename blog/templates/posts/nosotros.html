@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
+
+{% load static %}
 {% block titulo %} Sobre nosotros {% endblock titulo %}
 
 {% block contenido %}
-<h1> Grupo 2 </h1>
-<hr>
-<h2> Integrantes </h2>
-<hr>
-<li> Pokorasky Gabriel </li>
-<li> Alvarez Matías</li>
-<li> Hiemur Nazzer </li>
-<li> Casullo Sebastián </li>
-
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="text-center">Grupo 2</h1>
+      <hr>
+      <h2 class="text-center">Integrantes</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Pokorasky Gabriel</li>
+        <li class="list-group-item">Alvarez Matías</li>
+        <li class="list-group-item">Hiemur Nazzer</li>
+        <li class="list-group-item">Casullo Sebastián</li>
+      </ul>
+    </div>
+  </div>
+</div>
 {% endblock contenido %}
