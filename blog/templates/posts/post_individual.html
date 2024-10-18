@@ -4,8 +4,10 @@
 {% block titulo %} Noticia completa {% endblock %}
 
 {% block contenido %}
+<br>
 
 <a href="{% url 'apps.posts:modificar_post' posts.pk %}" class="btn btn-dark btn-sm rounded-pill">Modificar post</a>
+
 <h1>{{noticia}}</h1>
 <img class="img-detalle" src="{{  posts.imagen.url  }}" style="height: 200px;">
 <p>{{posts.texto}}</p>
