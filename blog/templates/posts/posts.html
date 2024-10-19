@@ -12,11 +12,8 @@
     {% endif %}
     <div>
         <br><a href="{% url 'apps.posts:posts' %}" class="btn btn-dark btn-sm rounded-pill">Todas</a>
-        {% for categoria in categorias %}
-        <a href="?categoria={{categoria.nombre}}" class="btn btn-dark btn-sm rounded-pill"> {{categoria.nombre}}</a>
-        {% endfor %}
-        <a href="?ordenar=fecha" class="btn btn-dark btn-sm rounded-pill">Ordenar por fecha</a>
-        <a href="?ordenar=alfabetico" class="btn btn-dark btn-sm rounded-pill">Ordenar alfabeticamente</a>
+        <a href="?ordenar_por=fecha" class="btn btn-dark btn-sm rounded-pill">Ordenar por fecha</a>
+        <a href="?ordenar_por=alfabetico" class="btn btn-dark btn-sm rounded-pill">Ordenar alfabeticamente</a>
     </div>
     <hr>
 </section>

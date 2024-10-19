@@ -120,7 +120,7 @@ class Noticias(ListView):
         ordenar_por = self.request.GET.get("ordenar")
         print(ordenar_por)
         if ordenar_por == "fecha":
-            queryset = queryset.order_by("-fecha_publicacion")
+            queryset = queryset.order_by("-publicado")
         # alfabeticamente
         elif ordenar_por == "alfabetico":
             queryset = queryset.order_by("-titulo")
