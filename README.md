@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <h1>README - [Proyecto Final Informatorio - Blog con Django]</h1>
 </head>
+<div>
+    <a href="https://github.com/Casullo/FINAL_PRO/branches" target="_blank">
+        <img alt="Static Badge" src="https://img.shields.io/badge/Ramas_Creadas-repo_final-blue?style=social&link=https%3A%2F%2Fgithub.com%2FCasullo%2FFINAL_PRO%2Fbranches">
+    </a>
+</div>
 <body>
     <h2>Descripción</h2>
     <p>Para la versión mínima del proyecto, se solicita que se incluyan las siguientes funcionalidades:</p>
