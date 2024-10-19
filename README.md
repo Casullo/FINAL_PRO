@@ -42,7 +42,7 @@
     <ul>
         <li><strong>Nazzer Hiemur</strong> - <a href="https://github.com/nazhiemur">GitHub</a> | <a href="#">LinkedIn</a></li>
         <li><strong>Martin Vernazza</strong> - <a href="https://github.com/martinvernazza42">GitHub</a> | <a href="#">LinkedIn</a></li>
-        <li><strong>Matias Alvares</strong> - <a href="https://github.com/AlvMati">GitHub</a> | <a href="#">LinkedIn</a></li>
+        <li><strong>Matias Alvarez</strong> - <a href="https://github.com/AlvMati">GitHub</a> | <a href="#">LinkedIn</a></li>
         <li><strong>Sebastian Casullo</strong> - <a href="https://github.com/Casullo">GitHub</a> | <a href="#">LinkedIn</a></li>
         <li><strong>Gabriel Pokorasky</strong> - <a href="https://github.com/GabiPoko">GitHub</a> | <a href="#">LinkedIn</a></li>
     </ul>
