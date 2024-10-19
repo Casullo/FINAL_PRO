@@ -1,23 +1,18 @@
 from django.shortcuts import render
-
-from .models import Posts, User, Comentario
-
+from .models import Posts, User, Comentario, Categoria
 from django.shortcuts import redirect
-
-# Create your views here.
-
-#vista basada en clases
-from django.views.generic import ListView, DetailView
-
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from .forms import RegistroForm, CrearForm, ModificarForm, ComentarioForm
-from django.views.generic import CreateView, DeleteView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin   # mixin que solicita login al usuario
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView
+#vista basada en clases
 
 class PostListView(ListView):
     model = Posts
     template_name = "posts/posts.html"
     context_object_name = "posts"
-
-
 
 class PostDetailView(DetailView):
     model = Posts
@@ -47,8 +42,6 @@ class PostDetailView(DetailView):
         
 
 #crear vista para comentarios
-
-from django.contrib.auth.mixins import LoginRequiredMixin   # mixin que solicita login al usuario
 
 class ComentarioCreateView (LoginRequiredMixin, CreateView):
     model = Comentario
@@ -102,7 +95,6 @@ class ModificarPost (UpdateView):
     success_url = reverse_lazy ('index')
 
 
-
 #Sobre nosotros
 
 def about_us(request):
@@ -117,5 +109,47 @@ def perfil(request, id):
     print(usuarios)
     return render(request, "perfil.html", ctx)
 
+class Noticias(ListView):
+    model = Posts
+    template_name = "posts/posts.html"
+    # paginate_by = 2
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        # print(queryset)
+        # fecha
+        ordenar_por = self.request.GET.get("ordenar")
+        print(ordenar_por)
+        if ordenar_por == "fecha":
+            queryset = queryset.order_by("-fecha_publicacion")
+        # alfabeticamente
+        elif ordenar_por == "alfabetico":
+            queryset = queryset.order_by("-titulo")
+        # por autor
+        autor = self.request.GET.get("autor")
+        if autor:
+            queryset = queryset.filter(autor__username=autor)
+        # por categorias
+        categoria = self.request.GET.get("categoria")
+        if categoria:
+            queryset = queryset.filter(categoria__nombre=categoria)
+        # print(queryset)
+        return queryset
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["categorias"] = Categoria.objects.all()
+        return context
 
+class CustomLoginView(LoginView):
+    authentication_form = LoginView.authentication_form
+    
 
+class ModificarComentario(UpdateView):
+    model = Comentario
+    form_class = ComentarioForm
+    template_name = "comentarios/modificar.html"
+    success_url = reverse_lazy("posts")
+
+class EliminarComentario(DeleteView):
+    model = Comentario
+    template_name = "comentarios/confirm_delete.html"
+    success_url = reverse_lazy("posts")

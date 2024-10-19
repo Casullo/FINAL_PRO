@@ -20,9 +20,8 @@ from .views import index
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
 from django.contrib.auth.views import LoginView, LogoutView
-
+from apps.posts.views import CustomLoginView
 
 
 
@@ -33,9 +32,7 @@ urlpatterns = [
     path ('', index, name = 'index'),
     path('', include("apps.posts.urls")),
     path('', include("apps.contacto.urls")),
-
-    path('login/', LoginView.as_view(template_name= 'login.html'), name = 'login'), 
-
+    path("login/",LoginView.as_view(template_name="login.html"), name="login"),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('', include('django.contrib.auth.urls')),
 ]

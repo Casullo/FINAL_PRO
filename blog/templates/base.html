@@ -52,24 +52,22 @@
                       </li>
                       {% if user.is_authenticated %}
                       <li class="nav-item">
-                        <a class="nav-link text-white" href="{% url 'apps.posts:perfil' user.id %}">{{ user.username}}</a>
+                        <a class="nav-link text-white" href="{% url 'apps.posts:perfil' user.id %}">{{user.username}}</a>
                       </li>
-                        <li class="nav-item text white">
-                          <form action="{% url 'logout' %}" method="POST">
-                            {% csrf_token %}
-                            <button type="submit" class="nav-link btn btn-link text-white">Cerrar sesión</button>
-                          </form>
-                        </li>
-
+                      <li> {{user.username}}</li>
                       {% else %}
-                        
-                        <li class="nav-item text-white">
-                          <a class="nav-link text-white" href="{% url 'apps.posts:registro' %}">Registrarse</a>
-                        </li>
+                      <li class="nav-item text-white">
+                        <a class="nav-link text-white" href="{% url 'apps.posts:registro' %}">Registrarse</a>
+                      </li>
                         <li class="nav-item text-white">
                           <a class="nav-link border border-white text-white" href="{% url 'login' %}">LogIn</a>
                         </li>
                       {% endif %}
+                      <form action="{% url 'logout' %}" method="post">
+                        <li class="nav-item text-white">
+                        <a class="nav-link text-white" href="{% url 'logout' %} ">Cerrar Sesion</a>
+                      </form>
+                      </li>
                     </ul>
                   </div>
                 </div>

@@ -7,19 +7,18 @@ from django.conf import settings
 
 #Create your models here.
 
-#creación de clase ´categoría'
 class User (AbstractUser):
     icono = models.ImageField (upload_to= 'media/usuarios', null=True, blank=True)
     descripcion = models.TextField (max_length= 250)
 
     def __str__ (self):
-       return self.username
+        return self.username
     
 class Meta ():
         verbose_name = 'Usuario'
         verbose_name_plural = 'Usuarios'
 
-
+#Creación de clase 'categoría'
 class Categoria (models.Model):
     nombre = models.CharField (max_length=30, null=False)
 
@@ -45,7 +44,7 @@ class Posts (models.Model):
     def __str__(self):
         return self.titulo
     
-    #creación clase comentarios
+#creación clase comentarios
 
 class Comentario (models.Model):
     posts = models.ForeignKey ('posts.Posts', on_delete=models.CASCADE, related_name='comentarios')
