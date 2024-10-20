@@ -4,13 +4,15 @@
 {% block titulo %} Noticia completa {% endblock %}
 
 {% block contenido %}
-<div class="container mt-5">  <div class="row mb-4">  <div class="col-md-12">  <a href="{% url 'apps.posts:modificar_post' posts.pk %}" class="btn btn-dark btn-sm rounded-pill">Modificar post</a>
-</div>
-</div>
 
 <div class="row">  <div class="col-md-8">  <h1>{{ noticia }}</h1>
   <img src="{{ posts.imagen.url }}" class="img-fluid mb-3" alt="{{ noticia }}"> <p class="text-justify">{{ posts.texto }}</p>  
   {% if user.id == posts.autor_id %}
+  <div class="container mt-5">  
+    <div class="row mb-4">  
+      <div class="col-md-12">  
+        <a href="{% url 'apps.posts:modificar_post' posts.pk %}" class="btn btn-dark btn-sm rounded-pill">Modificar post</a>
+  </div>
   <a href="{% url 'apps.posts:eliminar_post' posts.pk %}" class="btn btn-dark btn-sm rounded-pill">Eliminar post</a>
   {% endif %}
   <div class="d-flex justify-content-between mb-2">  <p>Fecha: {{ posts.fecha }}</p>
