@@ -39,6 +39,7 @@
     <ul>
         <li><a href="https://trello.com/invite/b/66e60fea32b2afaa85c8d813/ATTIbcfa5428efcc4202bbba1f19393e00a9DF5E8464/proyecto-final-grupo-2-comi-5">Trello</a>: Organización del equipo.</li>
         <li><a href="https://www.figma.com/design/XFB2EEGldFwfuwshqq2IZw/PROYECTO-FINAL?node-id=0-1&t=nFI6KJq4wJv3pd7X-1">Figma</a>: Diseño visual de la aplicación.</li>
+        <li><a href="https://www.figma.com/board/yyBitsFfaUmq8NzLo9DQGT/USERFLOW?node-id=0-1&t=2Y6sIZOlNPiBkHm7-1">Figma</a>: Userflow.</li>
         <li><a href="https://drive.google.com/file/d/1jFNxLm-oQZ_m4YIyr-qxQcYB-ZWW4eV3/view?usp=drive_link">Draw.io</a>: Modelado entidad-relación de las bases de datos.</li>
     </ul>
     <h2>Miembros del Equipo (Comisión 5, Grupo 2)</h2>
