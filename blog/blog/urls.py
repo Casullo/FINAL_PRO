@@ -22,8 +22,8 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.views import LoginView, LogoutView
 from apps.posts.views import CustomLoginView
-
-
+from django.contrib.auth import views as auth_views
+from . import views
 
 #from .views import posts
 
@@ -33,7 +33,7 @@ urlpatterns = [
     path('', include("apps.posts.urls")),
     path('', include("apps.contacto.urls")),
     path("login/",LoginView.as_view(template_name="login.html"), name="login"),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', views.custom_logout, name='logout'),
     path('', include('django.contrib.auth.urls')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
