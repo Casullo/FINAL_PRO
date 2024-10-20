@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <h1>README - [Proyecto Final Informatorio - Blog con Django]</h1>
+    <h1>Proyecto Final Informatorio  [Blog con Django]</h1>
 </head>
 <div>
     <h1> <a href="https://nazzer.pythonanywhere.com/">Juegolandia Online</a></h1>
