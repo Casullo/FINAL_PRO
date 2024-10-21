@@ -3,14 +3,15 @@
 {% block titulo %} Perfil de usuario {% endblock titulo%}
 
 {% block contenido %}
+<div class="mt-5 card d-flex row mb-2 text-white bg-dark">
 <h1>Perfil de usuarios</h1>
 
-<h1>Id Usuario :{{usuarios.id}}</h1>  
+<h1>Id Usuario: {{usuarios.id}}</h1>  
 <h1>Username: {{usuarios.username}}</h1>
 <h1>Email: {{usuarios.email}}</h1>
 {% if usuarios.icono %}
 <img src="{{usuarios.icono.url }}" alt="asd" class="img-perfil">
 {% endif %}
-
+</div>
 
 {% endblock contenido %}

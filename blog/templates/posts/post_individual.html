@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block contenido %}
-
+<body style="background-color: #212529; ">
+<center>
+<div class="mb-2, mx-auto text-white" style="width: fit-content;">
 <h1>{% block titulo %} {{ posts.titulo }} {% endblock titulo %}</h1>
-<div class="card mb-3">
-<div class="mx-auto" style="width: fit-content;">
   <img src="{{ posts.imagen.url }}" class="img-fluid" alt="{{ noticia }}">
-</div> 
-</div> 
-  <p class="text-justify">{{ posts.texto }}</p>  
+</center>
+<p class="text-justify text-white">{{ posts.texto }}</p>
+</div>
   {% if user.id == posts.autor_id %}
   <div class="container mt-5">  
     <div class="row mb-4">  
@@ -18,19 +18,20 @@
   <a href="{% url 'apps.posts:eliminar_post' posts.pk %}" class="btn btn-dark btn-sm rounded-pill">Eliminar post</a>
   </div>
   {% endif %}
-  <div class="d-flex justify-content-between mb-2">  
+  <div class="d-flex row mb-2 text-white-50">  
     <p>Fecha: {{ posts.fecha }}</p>
+    <br>
     <p>Categoria: {{ posts.categoria }}</p>
   </div>
   {% if user.id == posts.autor_id %}
-  <div class="d-flex align-items-center mb-3">  <img src="https://th.bing.com/th/id/R.0ababdb27dd0bb71f21f03c98b6cd6f1?rik=%2fiVDxahrgNztPA&pid=ImgRaw&r=0" width="20px" alt="Autor">
+  <div class="text-light d-flex align-items-center mb-3">  <img src="https://th.bing.com/th/id/R.0ababdb27dd0bb71f21f03c98b6cd6f1?rik=%2fiVDxahrgNztPA&pid=ImgRaw&r=0" width="20px" alt="Autor">
     <p class="ms-2">{{ posts.autor }}</p>
   </div>
   {%endif%}
 
   <!-- agregar comentarios -->
   
-<div class="container-fluid" style="margin-bottom: 20px;">
+<div class="container-fluid text-white" style="margin-bottom: 20px;">
 <h4>Comentarios</h4>
     {% for comentario in comentarios %}
     <div class="card mb-3">
@@ -68,4 +69,5 @@
       </form>
 </div>
 </div>
+</body>
 {% endblock contenido %}

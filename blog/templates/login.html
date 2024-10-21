@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
-<title>{% block title %} Registro de usuario {% endblock title %}</title>
+{% block titulo %} Registro de usuario {% endblock titulo %}
 
 {% block contenido %}
+<body style="background-color: #212529;">
 <center>
-<form method="POST"
- class="mt-5">
+<div class="container">
+  <form method="POST" class="card mb-3">
   <h1 class="h1">Iniciar sesión</h1>
   <div class="messages">
     {% for message in messages %}
@@ -15,13 +14,17 @@
     {% endfor %}
   </div>
   {% csrf_token %}
-  <div class="container">
-    <a href="{% url 'password_reset' %}">¡Olvidaste tu contraseña? </a>
-    {{ form.as_p }}
-  </div>
+  {{ form.as_p }}
   <a style="color: black;" href="{% url 'apps.posts:registro' %}">Todavía no está registrado? Registrate</a>
+    <div class="container">
+    <a href="{% url 'password_reset' %}">¡Olvidaste tu contraseña? </a>
+    </div>
   <br><br>
   <button type="submit" class="btn btn-secondary btn-lg px-3">Iniciar sesión</button>
+  <br><br>
 </form>
+</div>
 </center>
-{% endblock %}
+</body>
+
+{% endblock contenido %}
