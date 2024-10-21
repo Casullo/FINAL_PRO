@@ -54,6 +54,17 @@ class ComentarioCreateView (LoginRequiredMixin, CreateView):
         form.instance.posts_id = self.kwargs['posts_id']
         return super().form_valid(form)
 
+class ModificarComentario(UpdateView):
+    model = Comentario
+    form_class = ComentarioForm
+    template_name = "comentarios/modificar_comentario.html"
+    success_url = reverse_lazy("posts")
+
+class EliminarComentario(DeleteView):
+    model = Comentario
+    template_name = "comentarios/confirm_delete.html"
+    success_url = reverse_lazy("posts")
+
 
 
 from django.urls import reverse_lazy
@@ -143,13 +154,3 @@ class CustomLoginView(LoginView):
     authentication_form = LoginView.authentication_form
     
 
-class ModificarComentario(UpdateView):
-    model = Comentario
-    form_class = ComentarioForm
-    template_name = "comentarios/modificar.html"
-    success_url = reverse_lazy("posts")
-
-class EliminarComentario(DeleteView):
-    model = Comentario
-    template_name = "comentarios/confirm_delete.html"
-    success_url = reverse_lazy("posts")
