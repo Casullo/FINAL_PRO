@@ -4,13 +4,36 @@
 
 {% block contenido %}
 
-<hr>
+<br>
 <section>
+    
     {% if user.is_authenticated %}
-        <a href="{% url 'apps.posts:nuevo_post' %}" class="btn btn-dark btn-sm rounded-pill">Nuevo Post</a>
-        
+    <div class="d-flex justify-content-end">
+        <a href="{% url 'apps.posts:nuevo_post' %}" class="btn btn-dark btn-sm rounded-pill me-5">Nuevo Post</a>
+    </div>   
+    <hr>
     {% endif %}
+    
+
+    <h5>Ordenar noticias por:
+
+    <a id="boton_post" href="?orden=reciente"><button class="btn btn-dark btn-sm rounded-pill">Más reciente</button></a>
+    <a id="boton_post" href="?orden=antiguo"><button class="btn btn-dark btn-sm rounded-pill">Más antiguo</button></a>
+    <a id="boton_post" href="?orden=alfabetico"><button class="btn btn-dark btn-sm rounded-pill">Orden alfabético</button></a>
+
+</h5>
+<hr>
+<h5>Categorías:
+{% for categoria in categorias %}
+
+    
+    <a id="boton_post" href="?categoria={{categoria.nombre}}" class="me-3"><button class="btn btn-dark btn-sm rounded-pill">{{categoria.nombre}}</button></a>
+    
+{% endfor %}
+    <a href="{% url 'apps.posts:posts' %}"><button class="btn btn-dark btn-sm rounded-pill">Todas</button></a>
+</h5>
 </section>
+<br>
 
 <div class="container">
     <div class="row">
@@ -22,6 +45,9 @@
                     <h5 class="card-title">{{ i.titulo }}</h5>
                     <p class="card-text">{{ i.texto | truncatechars:45}} <a href="{% url 'apps.posts:post_individual' i.id %}">seguir leyendo...</a></p>
                     <p class="card-text"><small class="text-muted">{{ i.categoria }}</small></p>
+                    <a href="?autor={{i.autor}}"><small>{{i.autor}}</small></a>
+
+                    <p class= "card-text"><small class="text_muted"> {{ i.fecha }}</small></p>
                 </div>
             </div>
         </div>
