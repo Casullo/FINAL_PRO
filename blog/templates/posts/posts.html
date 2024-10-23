@@ -7,16 +7,22 @@
 
 <hr>
 <section>
-    {% if user.is_authenticated %}
-        <a href="{% url 'apps.posts:nuevo_post' %}" class="btn btn-dark btn-sm rounded-pill">Nuevo Post</a>
-        
-    {% endif %}
     <div>
-        <br><a href="{% url 'apps.posts:posts' %}" class="btn btn-dark btn-sm rounded-pill">Todas</a>
-        <a href="?ordenar_por=fecha" class="btn btn-dark btn-sm rounded-pill">Ordenar por fecha</a>
-        <a href="?ordenar_por=alfabetico" class="btn btn-dark btn-sm rounded-pill">Ordenar alfabeticamente</a>
+
+        <h5 class="text-white-50">Ordenar noticias por:
+            <br><a href="{% url 'apps.posts:posts' %}" class="btn btn-dark btn-sm rounded-pill">Todas</a>
+            <a id="boton_post" href="?orden=reciente"><button class="btn btn-dark btn-sm rounded-pill">Más reciente</button></a>
+            <a id="boton_post" href="?orden=antiguo"><button class="btn btn-dark btn-sm rounded-pill">Más antiguo</button></a>
+            <a id="boton_post" href="?orden=alfabetico"><button class="btn btn-dark btn-sm rounded-pill">Orden alfabético</button></a>
+        </h5>
     </div>
     <hr>
+    {% if user.is_authenticated %}
+    <div class="d-flex justify-content-end me-5">
+        <a href="{% url 'apps.posts:nuevo_post' %}" class="btn btn-primary btn-lg rounded-pill">Nuevo Post</a>
+        <br>
+    </div>
+    {% endif %}
 </section>
 
 <div class="container">
@@ -29,7 +35,7 @@
                     <h5 class="card-title">{{ i.titulo }}</h5>
                     <p class="card-text">{{ i.texto | truncatechars:45}} <a href="{% url 'apps.posts:post_individual' i.id %}">seguir leyendo...</a></p>
                     <p class="card-text"><small class="text-muted">{{ i.categoria }}</small></p>
-                    <a href="?autor={{noticia.autor}}"><small>{{noticia.autor}}</small></a>
+                    <a href="?autor={{i.autor}}"><small>{{i.autor}}</small></a>
                 </div>
             </div>
         </div>

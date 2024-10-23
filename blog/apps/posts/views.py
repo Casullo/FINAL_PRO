@@ -13,6 +13,31 @@ class PostListView(ListView):
     model = Posts
     template_name = "posts/posts.html"
     context_object_name = "posts"
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        orden = self.request.GET.get('orden')
+        #orden por fechas
+        if orden == 'reciente':
+            queryset = queryset.order_by('-fecha')
+        elif orden == 'antiguo':
+            queryset = queryset.order_by('fecha')
+        #orden alfabético
+        elif orden == 'alfabetico':
+            queryset = queryset.order_by('-titulo')
+        #ver posts de un determinado autor
+        autor = self.request.GET.get("autor")
+        if autor:
+            queryset = queryset.filter(autor__username= autor)
+        #filtro por categoría
+        categoria = self.request.GET.get("categoria")
+        if categoria:
+            queryset = queryset.filter(categoria__nombre=categoria)
+        return queryset
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['orden'] = self.request.GET.get('orden', 'reciente')
+        context["categorias"] = Categoria.objects.all()
+        return context
 
 class PostDetailView(DetailView):
     model = Posts
