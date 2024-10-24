@@ -40,7 +40,7 @@
               </div>
             <tr><td>{{ comentario.usuario }} {{ comentario.fecha }}</td></tr>
         </table>
-        {% if user.id == comentario.usuario_id %}
+        {% if user.id == comentario.usuario_id or user.id == user.is_staff %}
         <a class="btn btn-danger" href="{% url 'apps.posts:borrar_comentario' comentario.pk %}">Eliminar</a>
         <a class="btn btn-warning" href="{% url 'apps.posts:modificar_comentario' comentario.pk %}">Modificar</a>
         {% endif %}
