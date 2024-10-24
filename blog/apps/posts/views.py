@@ -9,7 +9,7 @@ from django.shortcuts import redirect
 #vista basada en clases
 from django.views.generic import ListView, DetailView
 
-from .forms import RegistroForm, CrearForm, ModificarForm, ComentarioForm
+from .forms import RegistroForm, CrearForm, ModificarForm, ComentarioForm, ModificarComentarioForm
 from django.views.generic import CreateView, DeleteView, UpdateView
 
 class PostListView(ListView):
@@ -149,6 +149,19 @@ def perfil(request, id):
     ctx["usuarios"] = usuarios
     print(usuarios)
     return render(request, "perfil.html", ctx)
+
+
+class ModificarComentario(UpdateView):
+    model = Comentario
+    form_class = ModificarComentarioForm
+    template_name = "comentarios/modificar.html"
+    success_url = reverse_lazy('apps.posts:posts')
+
+
+class EliminarComentario(DeleteView):
+    model = Comentario
+    template_name = "comentarios/confirm_delete.html"
+    success_url = reverse_lazy("apps.posts:posts")
 
 
 

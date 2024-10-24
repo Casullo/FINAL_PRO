@@ -21,6 +21,10 @@ urlpatterns = [
     path("nosotros/", views.about_us, name="nosotros"),
 
     path ("perfil/<int:id>", views.perfil , name="perfil"), 
+
+    path("modificar_com/<int:pk>", views.ModificarComentario.as_view(), name="modificar_comentario"),
+
+    path( "borrar/<int:pk>", views.EliminarComentario.as_view(), name="borrar_comentario" ),
     
   
 ]

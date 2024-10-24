@@ -41,3 +41,13 @@ class ComentarioForm(forms.ModelForm):
         fields = ['texto']
 
 
+class ModificarComentarioForm(forms.ModelForm):
+
+    class Meta:
+        model = Comentario
+        fields = [
+            "texto",
+        ]
+
+
+
