@@ -37,17 +37,13 @@
     <div class="card mb-3">
     <table class="list-unstyled d-flex justify-content-between">
             <tr> <td>{{ comentario.texto }}</td></tr>
-            <div> {% if comentario.usuario == user.id %} 
-              <a href="SAD" class="btn btn-sm btn-outline-primary">Editar</a>
-              <a href="DSA" class="btn btn-sm btn-outline-primary">Editar</a>
-              <a href="ASD" class="btn btn-sm btn-outline-danger">Eliminar</a>
-              {% endif %}
-            </div>
               </div>
             <tr><td>{{ comentario.usuario }} {{ comentario.fecha }}</td></tr>
         </table>
+        {% if user.id == comentario.usuario_id %}
         <a class="btn btn-danger" href="{% url 'apps.posts:borrar_comentario' comentario.pk %}">Eliminar</a>
         <a class="btn btn-warning" href="{% url 'apps.posts:modificar_comentario' comentario.pk %}">Modificar</a>
+        {% endif %}
     </div>
     {% empty %}
         <p>No hay comentarios. Puedes ser el primero en comentar!</p>
