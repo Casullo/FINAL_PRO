@@ -82,7 +82,7 @@ class ComentarioCreateView (LoginRequiredMixin, CreateView):
 class ModificarComentario(UpdateView):
     model = Comentario
     form_class = ModificarComentarioForm
-    template_name = "comentarios/modificar.html"
+    template_name = "comentarios/modificar_comentario.html"
     success_url = reverse_lazy('apps.posts:posts')
     
 class EliminarComentario(DeleteView):
