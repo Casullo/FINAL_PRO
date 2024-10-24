@@ -3,14 +3,14 @@
 {% load static %}
 
 {% block contenido %}
-    <div class="logout-message">
+    <div class="logout-message text-white">
         <h2>Sesión Cerrada</h2>
-        <p>Serás redirigido a la página principal en <span id="countdown">15</span> segundos.</p>
+        <p>Serás redirigido a la página principal en <span id="countdown">5</span> segundos.</p>
     </div>
 
     <script>
         // Cuenta regresiva de 15 segundos
-        let countdown = 15;
+        let countdown = 5;
         const countdownElement = document.getElementById('countdown');
 
         const interval = setInterval(() => {
