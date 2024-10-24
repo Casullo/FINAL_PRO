@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Posts, User, Comentario, Categoria
 from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
-from .forms import RegistroForm, CrearForm, ModificarForm, ComentarioForm
+from .forms import RegistroForm, CrearForm, ModificarForm, ComentarioForm, ModificarComentarioForm
 from django.contrib.auth.mixins import LoginRequiredMixin   # mixin que solicita login al usuario
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
@@ -81,14 +81,14 @@ class ComentarioCreateView (LoginRequiredMixin, CreateView):
 
 class ModificarComentario(UpdateView):
     model = Comentario
-    form_class = ComentarioForm
-    template_name = "comentarios/modificar_comentario.html"
-    success_url = reverse_lazy("posts")
-
+    form_class = ModificarComentarioForm
+    template_name = "comentarios/modificar.html"
+    success_url = reverse_lazy('apps.posts:posts')
+    
 class EliminarComentario(DeleteView):
     model = Comentario
     template_name = "comentarios/confirm_delete.html"
-    success_url = reverse_lazy("posts")
+    success_url = reverse_lazy("apps.posts:posts")
 
 
 

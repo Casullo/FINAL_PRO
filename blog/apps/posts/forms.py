@@ -28,7 +28,6 @@ class CrearForm(forms.ModelForm):
 
 class ModificarForm (forms.ModelForm):
     class Meta:
-
         model = Posts
         fields = ('texto',)
 
@@ -43,7 +42,7 @@ class ComentarioForm(forms.ModelForm):
 class ModificarComentarioForm(forms.ModelForm):
     class Meta:
         model = Comentario
-        fields = ["texto"]
+        fields = ["texto",]
         
 class CustomLoginForm(AuthenticationForm):
     username = forms.CharField(

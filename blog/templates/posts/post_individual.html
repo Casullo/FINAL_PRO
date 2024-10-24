@@ -46,6 +46,8 @@
               </div>
             <tr><td>{{ comentario.usuario }} {{ comentario.fecha }}</td></tr>
         </table>
+        <a class="btn btn-danger" href="{% url 'apps.posts:borrar_comentario' comentario.pk %}">Eliminar</a>
+        <a class="btn btn-warning" href="{% url 'apps.posts:modificar_comentario' comentario.pk %}">Modificar</a>
     </div>
     {% empty %}
         <p>No hay comentarios. Puedes ser el primero en comentar!</p>

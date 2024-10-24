@@ -16,7 +16,7 @@ urlpatterns = [
     path ("modificar/<int:pk>", views.ModificarPost.as_view(), name = 'modificar_post'),
     path("nosotros/", views.about_us, name="nosotros"),
     path ("perfil/<int:id>", views.perfil , name="perfil"),
-    path("borrar/<int:pk>", views.EliminarComentario.as_view(), name="comentarios/confirm_delete"),
-    path("modificar_com/<int:pk>",views.ModificarComentario.as_view(),name="comentarios/modificar_comentario",),
+    path("modificar_com/<int:pk>", views.ModificarComentario.as_view(), name="modificar_comentario"),
+    path( "borrar/<int:pk>", views.EliminarComentario.as_view(), name="borrar_comentario" ),
 ]
 

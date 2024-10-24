@@ -1,9 +1,21 @@
 {% extends 'base.html' %}
 {% block contenido%}
-desea eliminar {{object}}
+<center><div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title text-center">Eliminar Post</h5>
+<div><h2>Desea Eliminar {{object}} ??</h2>
+<p>Esta acción no se puede revertir... si esta seguro/a presiona el boton ELIMINAR</p></div> 
 <form action="" method="post">
     {% csrf_token %}
     {{form}}
-    <input type="submit">
+    <input class= "btn btn-primary btn-lg" type="submit" value="ELIMINAR">
 </form>
+</div>
+</div> 
+</div> 
+</div> </div>
+</center>
 {% endblock contenido%}
