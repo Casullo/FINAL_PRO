@@ -14,8 +14,9 @@
             <a id="boton_post" href="?orden=reciente"><button class="btn btn-dark btn-sm rounded-pill">Más reciente</button></a>
             <a id="boton_post" href="?orden=antiguo"><button class="btn btn-dark btn-sm rounded-pill">Más antiguo</button></a>
             <a id="boton_post" href="?orden=alfabetico"><button class="btn btn-dark btn-sm rounded-pill">Orden alfabético</button></a>
-        </h5>
 <hr>
+<h5 class="text-white-50">Categorias:
+<br>
 {% for categoria in categorias %}
     
 <a id="boton_post" href="?categoria={{categoria.nombre}}" class="me-3"><button class="btn btn-dark btn-sm rounded-pill">{{categoria.nombre}}</button></a>
